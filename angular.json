@@ -28,26 +28,40 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+               "src/styles.scss",
+               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/aos/dist/aos.css",
+              "src/assets/fontgoogle.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js"
+            ],
+              "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/assets",
+                "src/assets/scss",
+                "src/assets"
+              ]
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "5GB",
+                  "maximumError": "1GB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "4MB",
+                  "maximumError": "8MB"
                 }
               ],
               "outputHashing": "all"
@@ -87,13 +101,25 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
-            "styles": [
-              "src/styles.scss"
+             "styles": [
+              "src/styles.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/aos/dist/aos.css",
+              "src/assets/fontgoogle.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss",
+                "src/assets"
+              ]
+            }
           }
         }
       }

@@ -1,0 +1,74 @@
+@use 'variables' as v;
+
+
+.location{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+  height: 50rem;
+    color: black;
+
+  h2{
+    @extend %title;
+  }
+
+  &__container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759972043/location_eloxcd.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 52rem;
+  }
+
+  &__block{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    background-color: v.$bg-page-lissette;
+    flex-direction: column;
+    border: solid v.$lis-principal 1px;
+    border-radius: 1rem;
+    padding: 2rem;
+
+    &-glasses{
+      height: 8rem;
+      width: 8rem;
+      object-fit: cover;
+    }
+
+    span{
+      font-size: 3rem;
+    }
+
+    h3{
+      font-size: 3.5rem;
+    }
+
+    a{
+      border: solid v.$lis-tertiary 2px;
+      border-radius: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      transition: all 0.3s ease-in-out;
+          color: black;
+
+      &:hover{
+        background-color: v.$lis-principal;
+        color: white;
+      }
+    }
+  }
+
+
+}

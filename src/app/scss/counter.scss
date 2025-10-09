@@ -1,0 +1,104 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.counter {
+  height: 100%;
+  padding: 10rem 3rem 0;
+  position: relative;
+
+  &__bouquet {
+    background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759972039/contador_vyws1a.png');
+    background-size: contain;
+    filter: brightness(0.9) saturate(0.9);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 35rem;
+    height: 17rem;
+    position: absolute;
+    top: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid v.$lis-principal 2px;
+    border-radius: 2rem;
+    height: 20rem;
+    color: v.$lis-principal;
+    gap: 1.5rem;
+    box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.18);
+  }
+
+  &__title {
+    margin-top: 3rem;
+    font-size: 2.6rem;
+  }
+
+  &__content {
+    &-days {
+      display: flex;
+      gap: 0.5rem;
+
+      &-separador {
+        font-size: 4rem;
+      }
+    }
+
+    .time {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+
+      p:first-of-type {
+        font-size: 4rem;
+        margin: 0;
+      }
+    }
+  }
+
+  &__addCalendary {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    bottom: 2rem;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background-color: v.$bg-page-lissette;
+      border: solid v.$lis-principal 2px;
+      border-radius: 1rem;
+      font-size: 1.3rem;
+      color: v.$lis-principal;
+      width: 70%;
+      padding: 0.5rem;
+      height: 100%;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.18);
+
+      p{
+        margin: 0;
+      }
+
+      &:hover {
+        background-color: v.$lis-principal;
+        color: white;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    text-align: center;
+    color: black;
+    padding: 1rem 3rem;
+  }
+
+}

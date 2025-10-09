@@ -1,0 +1,153 @@
+@use 'variables' as v;
+@use 'fontgoogle' as *;
+
+/** Media Queries **/
+@mixin telefono {
+  @media (min-width: v.$telefono) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: v.$desktop) {
+    @content;
+  }
+}
+
+@mixin xl_desktop {
+  @media (min-width: v.$xl_desktop) {
+    @content;
+  }
+}
+
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin contenedor {
+  width: min(95%, 150rem);
+  margin: 0 auto;
+}
+
+@mixin button($bgMobile,
+  $textMobile,
+  $borderMd,
+  $bgMd,
+  $textMd,
+  $bgHoverMd,
+  $textHoverMd) {
+
+  background-color: $bgMd;
+  color: $textMd;
+  font-family: $fuente-secundaria;
+  padding: .7rem 1.5rem .7rem 2rem;
+  // border-radius: .6rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid $borderMd;
+  transition: background-color 0.5s, color 0.5s;
+
+
+  @media (min-width: v.$tablet) {
+    padding: .6rem 2rem .6rem 5rem;
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: v.$desktop) {
+    padding: .7rem 1.5rem .7rem 5rem;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    background-color: $bgHoverMd;
+    color: $textHoverMd;
+  }
+}
+
+
+@mixin buttonWhitoutSpace($bgMobile,
+  $textMobile,
+  $borderMd,
+  $bgMd,
+  $textMd,
+  $bgHoverMd,
+  $textHoverMd) {
+
+  background-color: $bgMd;
+  color: $textMd;
+  padding: .7rem 2rem .7rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid $borderMd;
+  transition: background-color 0.5s, color 0.5s;
+
+
+  @media (min-width: v.$tablet) {
+    padding: .6rem 3rem .6rem 3rem;
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: v.$desktop) {
+    padding: .7rem 4rem .7rem 4rem;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    background-color: $bgHoverMd;
+    color: $textHoverMd;
+  }
+}
+
+@mixin menu-social($color, $size) {
+  &__enlace {
+    &::before {
+      color: $color;
+      font-size: $size;
+      display: inline-block;
+      font-style: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 6 Brands";
+    }
+
+    &[href*="facebook.com"]::before {
+      content: "\f39e";
+    }
+
+    &[href*="linkedin.com"]::before {
+      content: "\f0e1";
+    }
+
+    &[href*="tiktok.com"]::before {
+      content: "\e07b";
+    }
+
+    &[href*="instagram.com"]::before {
+      content: "\f16d";
+    }
+
+    &[href*="youtube.com"]::before {
+      content: "\f167";
+    }
+  }
+
+  &__ocultar {
+    display: none;
+  }
+}
+
+@mixin no-margin {
+  margin: 0 !important;
+}

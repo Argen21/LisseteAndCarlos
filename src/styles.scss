@@ -1,1 +1,125 @@
+@use 'fontgoogle' as *;
+@use 'mixins' as m;
+@use 'variables' as v;
+
 /* You can add global styles to this file, and also import other style files */
+
+// Reset Global
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $fuente-opensans;
+  font-size: 1.7rem;
+  margin: 0;
+
+  @media (min-width: 1280px) {
+    font-size: 2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+// Estilos para los elementos semánticos (h1, h2, h3, etc.)
+h1 {
+  font-size: 3rem;
+  font-family: $fuente-principal;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 5rem;
+  }
+}
+
+h2 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+  font-family: $fuente-principal;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 3.2rem;
+  }
+}
+
+h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+
+  @media (min-width: 1280px) {
+    font-size: 2.6rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 500;
+  font-family: $fuente-principal;
+
+  @media (min-width: 1280px) {
+    font-size: 2.1rem;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold-title {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+p {
+  line-height: 2.2rem;
+  font-size: 1.4rem;
+
+  @include m.tablet {
+    font-size: 1.4rem;
+
+  }
+
+  @include m.desktop {
+    font-size: 1.55rem;
+  }
+
+  @include m.xl_desktop {
+    font-size: 1.7rem;
+  }
+
+}
+
+

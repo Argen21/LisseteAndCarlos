@@ -1,0 +1,110 @@
+@use 'variables' as v;
+
+.gifts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 5rem;
+      color: black;
+
+  &__message{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &__title{
+    @extend %title;
+  }
+
+
+  &__icons{
+    width: 5rem;
+    height: 5;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem; margin-bottom: 0;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &__block {
+    background-color: v.$lis-tertiary;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    min-height: 220px;
+    padding: 2rem;
+    z-index: 10;
+    overflow: hidden;
+    text-align: center;
+
+
+    .front,
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.6s ease;
+      z-index: 2;
+    }
+
+    .back {
+      opacity: 0;
+      transform: scale(0.9);
+      padding: 5rem;
+
+      p{
+        font-size: 1.7rem;
+      }
+
+      u{
+         color: black;
+
+        &:hover{
+
+          color: v.$lis-principal;
+        }
+      }
+    }
+
+    &:hover {
+      .front {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      .back {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+
+  }
+
+  .breanch {
+    background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759972049/rama-regalos_kdit8f.png');
+      filter: brightness(1) saturate(1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    bottom: 7rem;
+    z-index: 1;
+    transform: rotate(180deg);
+    width: 100%;
+    height: 15rem;
+  }
+}
+
+
