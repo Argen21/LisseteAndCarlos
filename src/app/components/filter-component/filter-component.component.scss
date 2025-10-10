@@ -1,4 +1,7 @@
+
 @use 'variables' as v;
+@use 'fontgoogle' as f;
+@use 'app.component.scss';
 
 .filter{
   display: flex;

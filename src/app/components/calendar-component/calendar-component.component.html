@@ -1,0 +1,30 @@
+<section class="calendar">
+
+  <div class="calendar__branch"></div>
+
+  <div class="calendar__container">
+
+    <h2 class="calendar__title">Guarda la fecha</h2>
+
+    <p class="calendar__mes">Diciembre 2025</p>
+
+    <div class="calendar__content">
+      <div class="calendar__content-weekdays"
+        *ngFor="let day of weekdays"
+        data-aos="zoom-out-up"
+        data-aos-duration="2200">
+        <p>{{ day }}</p>
+      </div>
+
+      <div class="
+          calendar__content-days"
+        *ngFor="let numberDay of days"
+        data-aos="zoom-out-up"
+        data-aos-duration="2200">
+        <p>{{numberDay}}</p> <i *ngIf="numberDay === 27"
+          class="fa-regular fa-heart"></i>
+      </div>
+    </div>
+  </div>
+
+</section>

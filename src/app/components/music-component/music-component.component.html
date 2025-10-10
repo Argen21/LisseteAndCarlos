@@ -1,0 +1,36 @@
+<section class="music">
+
+  <p>Da play a nuestra muestra</p>
+
+  <div class="music__progress">
+    <input class="music__progress-bar"
+      type="range"
+      step="0.1"
+      [value]="musicService.currentTime$ | async"
+      [max]="musicService.duration$ | async"
+      (input)="musicService.seek($any($event.target).value)" />
+  </div>
+
+  <div class="music__display">
+    <span class="music__display-block">
+      {{ formatTime(musicService.currentTime$ | async) }}
+    </span>
+
+    <span class="music__display-block">
+      {{ formatTime(musicService.duration$ | async) }}
+    </span>
+  </div>
+
+  <button class="music__play-button"
+    (click)="musicService.togglePlay()">
+    <span *ngIf="!(musicService.isPlaying$ | async)"
+      class="icon-play"></span>
+
+    <span *ngIf="musicService.isPlaying$ | async"
+      class="icon-pause">
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+
+</section>

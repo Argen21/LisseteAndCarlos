@@ -1,0 +1,32 @@
+<section class="filter">
+  <span class="filter__comment">Comparte con nosotros</span>
+
+  <h2 class="filter__title">Nuestro filtro</h2>
+
+  <p class="filter__paragraph">
+    Utiliza nuestro filtro para subir fotos y videos
+    en redes socials
+  </p>
+
+  <div class="filter__links">
+    <button class="btn facebook"
+      (click)="shareOnFacebook()">
+      <i class="fab fa-facebook"></i>
+    </button>
+
+    <button class="btn instagram"
+      (click)="shareOnInstagram()">
+      <i class="fab fa-instagram"></i>
+    </button>
+  </div>
+
+  <div class="filter__text">
+    <p (click)="copiarAlPortapapeles(hashtag , 'hashtag')"
+      class="filter__copy-text">
+      <u>{{ hashtag }}</u>
+      <span class="tooltip"
+        *ngIf="tooltips[hashtag]">¡Copiado!</span>
+    </p>
+
+  </div>
+</section>

@@ -1,0 +1,56 @@
+<section class="counter">
+
+  <div class="counter__bouquet"></div>
+
+  <div class="counter__container">
+    <h3 class="counter__title">CUENTA REGRESIVA</h3>
+
+    <div data-aos="zoom-in"
+      data-aos-duration="1000"
+      class="counter__content">
+
+      <div *ngIf="!contadorService.eventoFinalizado; else eventoTerminado"
+        class="counter__content-days">
+        <div class="time">
+          <p>{{ contadorService.dias }}</p>
+          <p>DÍAS</p>
+        </div>
+        <p class="counter__content-days-separador">:</p>
+        <div class="time">
+          <p>{{ contadorService.horas }}</p>
+          <p>HORAS</p>
+        </div>
+        <p class="counter__content-days-separador">:</p>
+        <div class="time">
+          <p>{{ contadorService.minutos }}</p>
+          <p>MINUTOS</p>
+        </div>
+        <p class="counter__content-days-separador">:</p>
+        <div class="time">
+          <p>{{ contadorService.segundos }}</p>
+          <p>MINUTOS</p>
+        </div>
+      </div>
+
+      <ng-template #eventoTerminado>
+        <div class="text-center p-8">
+          <h1 class="text-4xl font-bold">¡La fiesta ha comenzado!</h1>
+        </div>
+      </ng-template>
+
+    </div>
+
+  </div>
+
+  <div class="counter__addCalendary"
+    (click)="abrirGoogleCalendar()">
+    <div class="counter__addCalendary-container">
+      <i class="fa-regular fa-calendar-plus"></i>
+      <p>Añadir al calendario</p>
+    </div>
+  </div>
+
+  <p class="counter__text">Nuestra felicidad solo esta completa cuado
+    la compartimos con las personas a
+    las que amamos</p>
+</section>

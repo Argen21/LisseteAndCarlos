@@ -1,0 +1,29 @@
+<section class="gallery">
+
+  <h2 class="gallery__title">Galeria de fotos</h2>
+
+  <p-carousel [value]="products"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    [autoplayInterval]="5000"
+    data-aos="zoom-in-up"
+    data-aos-duration="1000">
+
+    <ng-template let-product
+      let-i="index"
+      #item>
+      <div class="border-solid rounded-2xl">
+        <div class="relative mx-auto">
+          <img [src]="'https://res.cloudinary.com/dxxf2jyg8/image/upload/' + product.image"
+            alt="prueba"
+            class="w-full h-[45rem] md:h-[55rem] object-cover" />
+        </div>
+      </div>
+    </ng-template>
+
+  </p-carousel>
+
+
+</section>

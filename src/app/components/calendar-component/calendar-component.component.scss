@@ -1,5 +1,7 @@
 @use 'mixins' as m;
 @use 'variables' as v;
+@use 'fontgoogle' as f;
+@use 'app.component.scss';
 
 .calendar {
   position: relative;

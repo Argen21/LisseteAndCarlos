@@ -1,5 +1,7 @@
 @use 'variables' as v;
 @use 'mixins' as m;
+@use 'fontgoogle' as f;
+@use 'app.component.scss';
 
 .counter {
   height: 100%;

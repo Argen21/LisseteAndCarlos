@@ -46,7 +46,8 @@
                 "src/scss",
                 "src/assets",
                 "src/assets/scss",
-                "src/assets"
+                "src/assets",
+                "src/app"
               ]
             }
           },
