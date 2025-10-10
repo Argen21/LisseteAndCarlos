@@ -4,6 +4,11 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  color-scheme: light;
+  background-color: v.$bg-page-lissette;
+}
+
 // Reset Global
 html {
   line-height: 1.15;
