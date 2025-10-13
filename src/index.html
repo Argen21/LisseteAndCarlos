@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"
+  data-theme="light">
 
 <head>
   <meta charset="utf-8">
@@ -13,9 +14,14 @@
     type="image/x-icon"
     href="https://res.cloudinary.com/dxxf2jyg8/image/upload/v1760050979/logo_f3rjs2.png">
   <meta name="color-scheme"
+    content="only light">
+  <meta name="supported-color-schemes"
     content="light">
-  <meta name="theme-color"
-    content="#ECE8DC">
+
+
+  <script>
+    document.documentElement.style.colorScheme = 'only light';
+  </script>
 
 
   <meta property="og:type"
@@ -39,6 +45,9 @@
     content="https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759950699/carrusel-5_nfrqky.webp">
 
 </head>
+
+
+
 
 <body>
   <app-root></app-root>
