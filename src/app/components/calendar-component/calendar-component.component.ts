@@ -22,7 +22,7 @@ export class CalendarComponentComponent {
   generateDecemberCalendar(): void {
 
   const daysInMonth = 31;
-  const startDay = 4;
+  const startDay = 0;
   const emptyDays: (string | number)[] = Array.from({ length: startDay }, () => '');
   const monthDays: (string | number)[] = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   this.days = emptyDays.concat(monthDays);
