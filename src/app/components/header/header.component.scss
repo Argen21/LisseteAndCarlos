@@ -112,7 +112,8 @@
         height: 34rem;
         width: 7.5rem;
         background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759950698/header_quylj2.webp');
-        background-size: cover;
+        // background-size: cover;
+        background-size: 29rem;
         position: relative;
         overflow: hidden;
 
@@ -152,7 +153,8 @@
         }
 
         &--right {
-          background-position: calc(100% - 25px);
+          background-position: right;
+
 
           @include m.desktop{
              background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1760329367/header-3_zlzrq9.webp');
