@@ -8,6 +8,10 @@
   padding: 10rem 3rem 0;
   position: relative;
 
+  @include m.desktop{
+    padding: 10rem 35rem 0;
+  }
+
   &__bouquet {
     background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759972039/contador_vyws1a.png');
     background-size: contain;
@@ -18,6 +22,13 @@
     height: 17rem;
     position: absolute;
     top: 0;
+
+    @include m.desktop{
+      width: calc(50% + 12rem);
+      background-size: 50rem;
+    }
+
+
   }
 
   &__container {
@@ -31,20 +42,45 @@
     color: v.$lis-principal;
     gap: 1.5rem;
     box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.18);
+
+    @include m.desktop{
+      height: 30rem;
+    }
   }
 
   &__title {
     margin-top: 3rem;
     font-size: 2.6rem;
+
+    @include m.desktop{
+      margin-top: 0;
+      font-size: 3.5rem;
+    }
   }
 
   &__content {
+    @include m.desktop{
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0 10rem;
+    }
+
     &-days {
       display: flex;
       gap: 0.5rem;
 
+      @include m.desktop{
+        gap: 2rem;
+      }
+
       &-separador {
         font-size: 4rem;
+
+        @include m.desktop{
+          margin-top: 0;
+        }
       }
     }
 
@@ -57,6 +93,10 @@
       p:first-of-type {
         font-size: 4rem;
         margin: 0;
+
+        @include m.desktop{
+          font-size: 4.5rem;
+        }
       }
     }
   }
@@ -85,8 +125,22 @@
       transition: all 0.2s ease-in-out;
       box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.18);
 
+      @include m.desktop{
+        padding: 1rem;
+      }
+
+      @include m.desktop{
+        i{
+          font-size: 1.5rem;
+        }
+      }
+
       p{
         margin: 0;
+
+        @include m.desktop{
+          font-size: 2rem;
+        }
       }
 
       &:hover {
@@ -101,6 +155,10 @@
     text-align: center;
     color: black;
     padding: 1rem 3rem;
+
+    @include m.desktop{
+      font-size: 2.2rem;
+    }
   }
 
 }

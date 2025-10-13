@@ -1,5 +1,6 @@
 @use 'app.component.scss';
 @use 'variables' as v;
+@use 'mixins' as m;
 
 .asist{
   color: black;
@@ -7,9 +8,17 @@
   text-align: center;
   margin: -3rem 0;
 
+  @include m.desktop{
+    padding: 20rem 30rem 5rem;
+  }
+
   p{
     font-size: 1.7rem;
     padding: 0 3rem;
+
+    @include m.desktop{
+      font-size: 2rem;
+    }
   }
 
   .buttons{
@@ -30,6 +39,10 @@
       align-items: center;
       background-color: v.$lis-tertiary;
       cursor: pointer;
+
+      @include m.desktop{
+        width: 40%;
+      }
 
       &:hover{
         background-color: v.$lis-principal;
@@ -52,6 +65,10 @@
     margin-top: 3rem;
     width: auto;
     height: 10rem;
+
+    @include m.desktop{
+      height: 15rem;
+    };
   }
 
 }
@@ -62,6 +79,10 @@
     height: 200px;
     overflow: hidden;
     margin-top: -10rem;
+
+    @include m.desktop{
+      display: none;
+    }
 
     &::after, &::before{
       content: "";

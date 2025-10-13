@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @use 'app.component.scss';
 
 
@@ -8,7 +9,12 @@
   align-items: center;
   margin-bottom: 5rem;
   height: 50rem;
-    color: black;
+  color: black;
+
+  @include m.desktop{
+    padding: 0 40rem;
+    height: 75rem;
+  }
 
   h2{
     @extend %title;
@@ -26,6 +32,11 @@
     background-repeat: no-repeat;
     background-position: top;
     background-size: 52rem;
+
+    @include m.desktop{
+      background-size: 80rem;
+      background-position-y: calc(50%);
+    }
   }
 
   &__block{
@@ -41,6 +52,10 @@
     border-radius: 1rem;
     padding: 2rem;
 
+    @include m.desktop{
+      padding: 5rem;
+    }
+
     &-glasses{
       height: 8rem;
       width: 8rem;
@@ -53,6 +68,17 @@
 
     h3{
       font-size: 3.5rem;
+
+      @include m.desktop{
+        font-size: 4.5rem;
+      }
+    }
+
+    p{
+      @include m.desktop{
+        font-size: 1.8rem;
+        padding: 0 2rem;
+      }
     }
 
     a{
@@ -63,6 +89,10 @@
       text-transform: uppercase;
       transition: all 0.3s ease-in-out;
           color: black;
+
+      @include m.desktop{
+        padding: 1.5rem 3rem;
+      }
 
       &:hover{
         background-color: v.$lis-principal;

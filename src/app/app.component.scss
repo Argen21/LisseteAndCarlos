@@ -9,6 +9,10 @@
   font-size: 4.5rem;
   color: v.$lis-principal;
 
+  @include m.desktop{
+    font-size: 5.5rem;
+  }
+
     &::before,
     &::after {
       content: "";
@@ -37,6 +41,10 @@ h1, h2, h3, span {
   font-weight: 500;
   font-style: normal;
   text-transform: none;
+
+  @include m.desktop{
+    font-size: 3rem;
+  }
 }
 
 p{
@@ -66,6 +74,11 @@ p{
   margin-bottom: 7rem;
   padding: 3rem;
 
+
+  @include m.desktop{
+    padding: 5rem 30rem;
+  }
+
   .header__video {
     width: 100%;
     height: 100%;
@@ -82,6 +95,12 @@ p{
   width: 100%;
   height: 45rem;
 
+  @include m.desktop{
+    display: flex;
+    justify-content: center;
+    height: 70rem;
+    padding: 0 30rem;
+  }
 
   img{
     padding: 0;
@@ -89,6 +108,11 @@ p{
     height: 100%;
     object-fit: cover;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.18);
+
+    @include m.desktop{
+      width: 70%;
+      object-fit: cover;
+    }
   }
 }
 
@@ -104,6 +128,10 @@ p{
     background-repeat: no-repeat;
     background-position-x: center;
     background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759972051/ramas-img2_nttx1u.svg');
+
+    @include m.desktop{
+      background-image: none;
+    }
   }
 
   .img{
@@ -118,6 +146,10 @@ p{
       transform: rotate(-5deg);
       width: auto;
       height: 42rem;
+
+      @include m.desktop{
+        height: 60rem;
+      }
     }
   }
 

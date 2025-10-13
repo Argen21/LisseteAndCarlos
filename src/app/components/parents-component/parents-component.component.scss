@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @use 'fontgoogle' as f;
 @use 'app.component.scss';
 
@@ -9,7 +10,12 @@
   text-align: center;
   padding: 3rem;
   margin-bottom: 5rem;
-    color: black;
+  color: black;
+
+  @include m.desktop{
+    margin-top: 5rem;
+    padding: 0 30rem;
+  }
 
   &__title{
     @extend %title;
@@ -31,8 +37,17 @@
       display: flex;
       flex-direction: column;
 
+      @include m.desktop{
+        width: 60%;
+        padding: 5rem;
+      }
+
       &--right{
         left: 7rem;
+
+        @include m.desktop{
+          left: calc(50% - 15rem);
+        }
       }
 
       h3{
@@ -40,6 +55,17 @@
         padding: 0 4rem;
         font-family: f.$fuente-italiana;
         font-weight: bold;
+
+        @include m.desktop{
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      p{
+        @include m.desktop{
+          font-size: 1.8rem;
+        }
       }
 
       &-bouquet{
@@ -52,6 +78,11 @@
         position: absolute;
         background-position: center;
         bottom: -4rem;
+
+        @include m.desktop{
+          background-size: 20rem;
+          width: calc(50% + 17rem);
+        }
 
       }
     }

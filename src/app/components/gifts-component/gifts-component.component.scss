@@ -1,4 +1,5 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @use 'app.component.scss';
 
 .gifts{
@@ -8,6 +9,11 @@
   text-align: center;
   padding: 5rem 5rem 0;
   color: black;
+
+
+  @include m.desktop{
+    padding: 0 30rem;
+  }
 
   &__message{
     font-size: 3rem;
@@ -22,6 +28,11 @@
   &__icons{
     width: 5rem;
     height: 5;
+
+    @include m.desktop{
+      width: 8rem;
+      height: 8rem;
+    }
   }
 
   &__content {
@@ -31,6 +42,7 @@
     align-items: center;
     width: 100%;
     z-index: 10;
+
   }
 
   &__block {
@@ -43,6 +55,11 @@
     z-index: 10;
     overflow: hidden;
     text-align: center;
+
+    @include m.desktop{
+      width: 80%;
+      min-height: 300px;
+    }
 
 
     .front,
@@ -67,7 +84,12 @@
 
       p{
         font-size: 1.7rem;
-        margin: 0;
+        margin: 0.5rem;
+
+        @include m.desktop{
+          font-size: 2rem;
+
+        }
       }
 
       u{
@@ -106,6 +128,10 @@
     transform: rotate(180deg);
     width: 100%;
     height: 15rem;
+
+    @include m.desktop{
+      background-size: 40rem;
+    }
   }
 }
 
