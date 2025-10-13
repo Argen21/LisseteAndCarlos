@@ -52,8 +52,35 @@ export class GoogleCalendarService {
     const fechaInicioStr = fechaInicio.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
     const fechaFinStr = fechaFin.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
 
-    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}&sf=true&output=xml`;
+    const urlWeb = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}&sf=true&output=xml`;
 
-    window.open(url, '_blank');
+    // Detectar dispositivo
+    const esAndroid = /Android/i.test(navigator.userAgent);
+    const esIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (esAndroid) {
+      // Abrir app de Google Calendar en Android
+      const urlApp = `intent://calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}#Intent;scheme=https;package=com.google.android.calendar;end`;
+
+      window.location.href = urlApp;
+
+      // Fallback por si no tiene la app
+      setTimeout(() => {
+        window.open(urlWeb, '_blank');
+      }, 1500);
+    } else if (esIOS) {
+      // Intentar abrir la app en iOS
+      const urlIOS = `googlecalendar://?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}`;
+
+      window.location.href = urlIOS;
+
+      // Fallback por si no la tiene instalada
+      setTimeout(() => {
+        window.open(urlWeb, '_blank');
+      }, 1500);
+    } else {
+      // En escritorio → abrir versión web
+      window.open(urlWeb, '_blank');
+    }
   }
 }

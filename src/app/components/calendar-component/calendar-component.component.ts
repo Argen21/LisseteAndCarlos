@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {Component } from '@angular/core';
+import { GoogleCalendarService } from '../../services/google-calendar.service';
 
 @Component({
   selector: 'calendar-component',
@@ -10,7 +11,7 @@ import {Component } from '@angular/core';
 export class CalendarComponentComponent {
 
 
-  constructor(){
+  constructor( private googleCalendarService:GoogleCalendarService){
     this.days = Array.from({ length: 31 }, (_, i) => i + 1);
     this.generateDecemberCalendar();
   }
@@ -27,6 +28,19 @@ export class CalendarComponentComponent {
   const monthDays: (string | number)[] = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   this.days = emptyDays.concat(monthDays);
 
+  }
+
+    abrirGoogleCalendar(){
+    this.googleCalendarService.abrirGoogleCalendar(
+      this.date,
+      {
+        titulo: "Boda de Lissette y Carlos",
+        frase: "Hoy comienza nuestra eternidad, de la mano, con amor y sin final.",
+        ubicacion: "Texcalyacac, Edo.Méx",
+        evento: "Boda",
+        duracionHoras: 4
+      }
+    )
   }
 
  }

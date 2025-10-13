@@ -11,7 +11,7 @@ import { GoogleCalendarService } from '../../services/google-calendar.service';
 })
 export class CounterComponentComponent implements OnInit {
 
-  date = "2025-12-24T13:00:00";
+  date = "2025-12-27T13:00:00";
 
   constructor(
     public contadorService: ContadorService,
@@ -26,7 +26,7 @@ export class CounterComponentComponent implements OnInit {
     this.googleCalendarService.abrirGoogleCalendar(
       this.date,
       {
-        titulo: "Boda de Calor Eduardo y Lissette",
+        titulo: "Boda de Lissette y Carlos",
         frase: "Hoy comienza nuestra eternidad, de la mano, con amor y sin final.",
         ubicacion: "Texcalyacac, Edo.Méx",
         evento: "Boda",

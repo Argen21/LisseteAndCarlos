@@ -20,9 +20,11 @@
           calendar__content-days"
         *ngFor="let numberDay of days"
         data-aos="zoom-out-up"
-        data-aos-duration="2200">
+        data-aos-duration="2200"
+        (click)="abrirGoogleCalendar()">
         <p>{{numberDay}}</p> <i *ngIf="numberDay === 27"
-          class="fa-regular fa-heart"></i>
+          class="fa-regular fa-heart"
+          style="cursor: pointer;"></i>
       </div>
     </div>
   </div>
