@@ -1,5 +1,6 @@
 @use 'variables' as v;
 @use 'mixins' as m;
+@use 'fontgoogle' as f;
 @use 'app.component.scss';
 
 .gifts{
@@ -84,7 +85,7 @@
 
       p{
         font-size: 1.7rem;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: f.$fuente-principal;
         margin: 0.5rem;
 
         @include m.desktop{
