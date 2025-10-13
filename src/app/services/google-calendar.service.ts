@@ -15,7 +15,7 @@ export class GoogleCalendarService {
 
   constructor() {}
 
-  abrirGoogleCalendar(input: string | any, opciones?: OpcionesEvento) {
+  abrirCalendario(input: string | any, opciones?: OpcionesEvento) {
     let fechaISO: string;
     let titulo: string;
     let frase: string;
@@ -49,38 +49,31 @@ export class GoogleCalendarService {
 
     const fechaFin = new Date(fechaInicio.getTime() + duracionHoras * 60 * 60 * 1000);
 
-    const fechaInicioStr = fechaInicio.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
-    const fechaFinStr = fechaFin.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
+    const inicioStr = fechaInicio.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const finStr = fechaFin.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
 
-    const urlWeb = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}&sf=true&output=xml`;
+    // Contenido del archivo ICS
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${titulo} nuestra ${evento}
+DESCRIPTION:${frase}
+LOCATION:${ubicacion}
+DTSTART:${inicioStr}
+DTEND:${finStr}
+END:VEVENT
+END:VCALENDAR`.trim();
 
-    // Detectar dispositivo
-    const esAndroid = /Android/i.test(navigator.userAgent);
-    const esIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    // Crear archivo descargable
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
 
-    if (esAndroid) {
-      // Abrir app de Google Calendar en Android
-      const urlApp = `intent://calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}#Intent;scheme=https;package=com.google.android.calendar;end`;
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${titulo.replace(/\s+/g, '_')}.ics`;
+    a.click();
 
-      window.location.href = urlApp;
-
-      // Fallback por si no tiene la app
-      setTimeout(() => {
-        window.open(urlWeb, '_blank');
-      }, 1500);
-    } else if (esIOS) {
-      // Intentar abrir la app en iOS
-      const urlIOS = `googlecalendar://?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}`;
-
-      window.location.href = urlIOS;
-
-      // Fallback por si no la tiene instalada
-      setTimeout(() => {
-        window.open(urlWeb, '_blank');
-      }, 1500);
-    } else {
-      // En escritorio → abrir versión web
-      window.open(urlWeb, '_blank');
-    }
+    URL.revokeObjectURL(url);
   }
 }
