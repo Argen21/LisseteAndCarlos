@@ -18,7 +18,7 @@ export class CalendarComponentComponent {
 
   days: (number | string)[] = [];
   weekdays: string[] = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
-  date = "2025-12-24T13:00:00";
+  date = "2025-12-27T13:00:00";
 
   generateDecemberCalendar(): void {
 
