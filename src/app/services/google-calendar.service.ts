@@ -15,7 +15,7 @@ export class GoogleCalendarService {
 
   constructor() {}
 
-  abrirCalendario(input: string | any, opciones?: OpcionesEvento) {
+  abrirGoogleCalendar(input: string | any, opciones?: OpcionesEvento) {
     let fechaISO: string;
     let titulo: string;
     let frase: string;
@@ -49,31 +49,11 @@ export class GoogleCalendarService {
 
     const fechaFin = new Date(fechaInicio.getTime() + duracionHoras * 60 * 60 * 1000);
 
-    const inicioStr = fechaInicio.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    const finStr = fechaFin.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const fechaInicioStr = fechaInicio.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
+    const fechaFinStr = fechaFin.toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
 
-    // Contenido del archivo ICS
-    const icsContent = `
-    BEGIN:VCALENDAR
-    VERSION:2.0
-    BEGIN:VEVENT
-    SUMMARY:${titulo} nuestra ${evento}
-    DESCRIPTION:${frase}
-    LOCATION:${ubicacion}
-    DTSTART:${inicioStr}
-    DTEND:${finStr}
-    END:VEVENT
-    END:VCALENDAR`.trim();
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(titulo)} nuestra ${encodeURIComponent(evento)}&dates=${fechaInicioStr}/${fechaFinStr}&details=${encodeURIComponent(frase)}&location=${encodeURIComponent(ubicacion)}&sf=true&output=xml`;
 
-    // Crear archivo descargable
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${titulo.replace(/\s+/g, '_')}.ics`;
-    a.click();
-
-    URL.revokeObjectURL(url);
+    window.open(url, '_blank');
   }
 }
