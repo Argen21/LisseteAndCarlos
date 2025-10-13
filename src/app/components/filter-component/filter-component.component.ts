@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class FilterComponentComponent {
 
-  hashtag = '#BodaCarlotaYLissette';
+  hashtag = '#BodaLissetteYCarlos';
   tooltips: { [key: string]: boolean } = {
     hashtag: false,
     nameTxt: false,
