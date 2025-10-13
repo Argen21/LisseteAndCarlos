@@ -54,16 +54,16 @@ export class GoogleCalendarService {
 
     // Contenido del archivo ICS
     const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${titulo} nuestra ${evento}
-DESCRIPTION:${frase}
-LOCATION:${ubicacion}
-DTSTART:${inicioStr}
-DTEND:${finStr}
-END:VEVENT
-END:VCALENDAR`.trim();
+    BEGIN:VCALENDAR
+    VERSION:2.0
+    BEGIN:VEVENT
+    SUMMARY:${titulo} nuestra ${evento}
+    DESCRIPTION:${frase}
+    LOCATION:${ubicacion}
+    DTSTART:${inicioStr}
+    DTEND:${finStr}
+    END:VEVENT
+    END:VCALENDAR`.trim();
 
     // Crear archivo descargable
     const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });

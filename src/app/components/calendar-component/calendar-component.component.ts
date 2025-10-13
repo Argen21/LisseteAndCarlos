@@ -31,7 +31,7 @@ export class CalendarComponentComponent {
   }
 
     abrirGoogleCalendar(){
-    this.googleCalendarService.abrirGoogleCalendar(
+    this.googleCalendarService.abrirCalendario(
       this.date,
       {
         titulo: "Boda de Lissette y Carlos",
