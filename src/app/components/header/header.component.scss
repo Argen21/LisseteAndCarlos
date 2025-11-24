@@ -111,14 +111,14 @@
         flex: 1;
         height: 34rem;
         width: 7.5rem;
-        background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1759950698/header_quylj2.webp');
-        // background-size: cover;
+        background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/q_50,f_auto,w_1600/v1759950698/header_quylj2.webp');
         background-size: 29rem;
         position: relative;
         overflow: hidden;
 
         @include m.desktop{
-          height: 60rem;
+          height: 55rem;
+          background-size: cover;
         }
 
         &::after {
@@ -135,7 +135,7 @@
           background-position: left;
 
           @include m.desktop{
-             background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1760329367/header-1_up2swe.webp');
+             background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/q_50,f_auto,w_1600/v1760329367/header-1_up2swe.webp');
              background-position: center;
           }
 
@@ -157,7 +157,7 @@
 
 
           @include m.desktop{
-             background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/v1760329367/header-3_zlzrq9.webp');
+             background-image: url('https://res.cloudinary.com/dxxf2jyg8/image/upload/q_50,f_auto,w_1600/v1760329367/header-3_zlzrq9.webp');
              background-position: center;
           }
         }
